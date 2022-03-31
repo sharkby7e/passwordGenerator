@@ -12,15 +12,20 @@ function writePassword() {
 
 //empty string to add to based on promptUser
 var options = ""
+//make len global so that promptUser and generatePassword can access
 var len = 0
+
 function generatePassword(str) {
   options = ""
+  var pass = ""
   promptUser()
-  var pass= ""
-  //checks that they chose at least one data type
+  // console.log(options)
+  // console.log(len)
   for (let i = 0; i < len; i++) {
-    var optLen = options.length()
-    var character = options[Math.floor(Math.random()*optLen)] 
+    var optLen = options.length
+    var character = options[Math.floor(Math.random()*optLen)]
+    // console.log(character)
+    pass+= character
 
   }
   return pass
@@ -29,27 +34,28 @@ function generatePassword(str) {
 
 //bigger function to prompt user containing smaller modular functions
 function promptUser(){
-  len = howLong()
+  howLong()
   var cap = caps()
   var low = lowers()
   var spe = specials()
   var num =nums()
-  validChoices(len,cap,low,spe)
+  //checks that they chose at least one data type
+  validateChoices(cap,low,spe,num)
 }
 
 function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
   // returns a Number 
-  var len = prompt("How long would you like your password", "at least 8, no more than 128")
+  len = prompt("How long would you like your password", "at least 8, no more than 128")
   if (len.typeOf=Number && len<=128 && len>=8 ){
     return len 
   }alert("please read the prompt more carefully this time")
-  howLong()
+  promptUser()
 }
 
 // checks if they want capital letters
 function caps() {
-  var bool = confirm("I want my password to include Capital Letters (A,B,C...). Cancel if you don't")
+  var bool = confirm("I want my password to include Capital Letters (A,B,C...). \nCancel if you don't")
   if(bool==true){
     options += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
@@ -58,7 +64,7 @@ function caps() {
 
 // checks if they want lowercase letters
 function lowers() {
-  var bool = confirm("I want to include Lowercase Letters (x,y,z...). Cancel if you don't") 
+  var bool = confirm("I want to include Lowercase Letters (x,y,z...). \nCancel if you don't") 
   if(bool==true){
     options += "abcdefghijklmnopqrstuvwxyz"
   }
@@ -67,7 +73,7 @@ function lowers() {
 
 //checks if they want numbers
 function nums() {
-  var bool = confirm("I want to include numbers (1,2,3...). Cancel if you don't")
+  var bool = confirm("I want to include numbers (1,2,3...). \nCancel if you don't")
   if(bool==true){
     options += "0123456789"
   }
@@ -76,7 +82,7 @@ function nums() {
 
 //checks if they want special characters
 function specials() {
-  var bool = confirm("I want to include Special Characters (!@#$%^&*()[]{}). Cancel if you don't") 
+  var bool = confirm("I want to include Special Characters (!@#$%^&*()[]{}). \nCancel if you don't") 
   if(bool==true){
     options += "!@#$%^&*()[]{}"
   }
@@ -84,7 +90,7 @@ function specials() {
 }
 
 //checks to make sure at leas one of the prompts is true
-function validChoices(a,b,c,d) {
+function validateChoices(a,b,c,d) {
   //retun true if at least one data types is true
   if (a||b||c||d){
     return true
