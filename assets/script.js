@@ -14,15 +14,14 @@ function writePassword() {
 var options = ""
 
 function generatePassword(str) {
-  for (let i = 0; i < howLong(); i++) {
-
-  }
+  promptUser()
 }
 
 
 //bigger function to prompt user containing smaller modular functions
 function promptUser(){
-  howLong()
+  var length = howLong()
+  console.log(length)
   lowers()
   caps()
   specials()
@@ -31,9 +30,11 @@ function promptUser(){
   if(validChoices()){
     //inner functions to ask how long, if special, if capitals
     generatePassword(options)
+  }else{
+    alert("You must choose, at least one data type.")
+    promptUser()
+
   }
-  alert("You must choose, at least one data type.")
-  promptUser()
 }
 
 function howLong() {
