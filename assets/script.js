@@ -15,7 +15,7 @@ var options = ""
 //make len global so that promptUser and generatePassword can access
 var len = 0
 
-function generatePassword(str) {
+function generatePassword() {
   options = ""
   var pass = ""
   promptUser()
@@ -26,7 +26,6 @@ function generatePassword(str) {
     var character = options[Math.floor(Math.random()*optLen)]
     // console.log(character)
     pass+= character
-
   }
   return pass
 }
@@ -45,12 +44,13 @@ function promptUser(){
 
 function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
-  // returns a Number 
   len = prompt("How long would you like your password", "at least 8, no more than 128")
   if (len.typeOf=Number && len<=128 && len>=8 ){
+  // returns a Number 
     return len 
-  }alert("please read the prompt more carefully this time")
-  promptUser()
+  }
+  alert("please read the prompt more carefully this time")
+  howLong()
 }
 
 // checks if they want capital letters
