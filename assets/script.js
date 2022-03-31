@@ -16,6 +16,7 @@ var options = ""
 function generatePassword(str) {
   options = ""
   promptUser()
+  //checks that they chose at least one data type
   return options
 }
 
@@ -27,13 +28,7 @@ function promptUser(){
   lowers()
   specials()
   nums()
-  //checks that they chose at least one data type
-  if(!validChoices()){
-    alert("You must choose, at least one data type.")
-    promptUser()
-  }else{
-    return
-  }
+  validChoices()
 }
 
 function howLong() {
@@ -46,41 +41,52 @@ function howLong() {
   howLong()
 }
 
+// checks if they want capital letters
 function caps() {
   var bool = confirm("I want my password to include Capital Letters (A,B,C...). Cancel if you don't")
-  if(bool){
+  if(bool==true){
     options += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
   return bool
 }
 
+// checks if they want lowercase letters
 function lowers() {
   var bool = confirm("I want to include Lowercase Letters (x,y,z...). Cancel if you don't") 
-  if(bool){
+  if(bool==true){
     options += "abcdefghijklmnopqrstuvwxyz"
   }
   return bool
 }
 
+//checks if they want numbers
 function nums() {
   var bool = confirm("I want to include numbers (1,2,3...). Cancel if you don't")
-  if(bool){
+  if(bool==true){
     options += "0123456789"
   }
   return bool
 }
 
+//checks if they want special characters
 function specials() {
   var bool = confirm("I want to include Special Characters (!@#$%^&*()[]{}). Cancel if you don't") 
-  if(bool){
+  if(bool==true){
     options += "!@#$%^&*()[]{}"
   }
   return bool
 }
 
+//checks to make sure at leas one of the prompts is true
 function validChoices() {
   //retun true if at least one data types is true
-  return (specials() || caps() || lowers()|| nums() )
+  if (specials() || caps() || lowers()|| nums()){
+    return true
+  }
+  else {
+    alert("you need to choose at least one data type")
+    promptUser()
+  }
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
