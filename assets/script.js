@@ -12,23 +12,29 @@ function writePassword() {
 
 //empty string to add to based on promptUser
 var options = ""
-
+var len = 0
 function generatePassword(str) {
   options = ""
   promptUser()
+  var pass= ""
   //checks that they chose at least one data type
-  return options
+  for (let i = 0; i < len; i++) {
+    var optLen = options.length()
+    var character = options[Math.floor(Math.random()*optLen)] 
+
+  }
+  return pass
 }
 
 
 //bigger function to prompt user containing smaller modular functions
 function promptUser(){
-  howLong()
-  caps()
-  lowers()
-  specials()
-  nums()
-  validChoices()
+  len = howLong()
+  var cap = caps()
+  var low = lowers()
+  var spe = specials()
+  var num =nums()
+  validChoices(len,cap,low,spe)
 }
 
 function howLong() {
@@ -78,9 +84,9 @@ function specials() {
 }
 
 //checks to make sure at leas one of the prompts is true
-function validChoices() {
+function validChoices(a,b,c,d) {
   //retun true if at least one data types is true
-  if (specials() || caps() || lowers()|| nums()){
+  if (a||b||c||d){
     return true
   }
   else {
