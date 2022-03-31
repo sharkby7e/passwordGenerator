@@ -10,7 +10,7 @@ function writePassword() {
 
 }
 
-//empty array to add to based on promptUser
+//empty string to add to based on promptUser
 var options = ""
 
 function generatePassword(str) {
@@ -38,7 +38,10 @@ function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
   // returns a Number 
   var len = prompt("How long would you like your password", "at least 8, no more than 128")
-  return len 
+  if (len.typeOf=Number && len<=128 && len>=8 ){
+    return len 
+  }alert("please read the prompt more carefully this time")
+  howLong()
 }
 
 function caps() {
