@@ -44,12 +44,12 @@ function promptUser(){
 
 function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
-  len = prompt("How long would you like your password", "at least 8, no more than 128")
-  if (len.typeOf=Number && len<=128 && len>=8 ){
+  len = prompt("How long would you like your password?", "input a number higher than 8, and no more than 128")
+  if (len.typeOf=Number && len>=8 && len<=128){
   // returns a Number 
     return len 
   }
-  alert("please read the prompt more carefully this time")
+  alert("Please read the prompt more carefully this time")
   howLong()
 }
 
@@ -96,7 +96,7 @@ function validateChoices(a,b,c,d) {
     return true
   }
   else {
-    alert("you need to choose at least one data type")
+    alert("ERROR: You must choose at least one character type. \nOkay to restart password generation")
     promptUser()
   }
 }
