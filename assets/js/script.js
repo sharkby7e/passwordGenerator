@@ -44,7 +44,7 @@ function promptUser(){
 
 function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
-  len = prompt("How long would you like your password?", "input a number higher than 8, and no more than 128")
+  len = prompt("How long would you like your password?", "Pleas input a number higher than 8, no more than 128")
   if (len.typeOf=Number && len>=8 && len<=128){
   // returns a Number 
     return len 
@@ -55,7 +55,7 @@ function howLong() {
 
 // checks if they want capital letters
 function caps() {
-  var bool = confirm("I want my password to include Capital Letters (A,B,C...). \nCancel if you don't")
+  var bool = confirm("Click Okay to include Capital Letters (A,B,C...). \nClick Cancel to choose other character types")
   if(bool==true){
     options += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
@@ -64,7 +64,7 @@ function caps() {
 
 // checks if they want lowercase letters
 function lowers() {
-  var bool = confirm("I want to include Lowercase Letters (x,y,z...). \nCancel if you don't") 
+  var bool = confirm("Click Okay to include Lowercase Letters (x,y,z...). \nClick Cancel to choose other character types") 
   if(bool==true){
     options += "abcdefghijklmnopqrstuvwxyz"
   }
@@ -73,7 +73,7 @@ function lowers() {
 
 //checks if they want numbers
 function nums() {
-  var bool = confirm("I want to include numbers (1,2,3...). \nCancel if you don't")
+  var bool = confirm("Click Okay to include numbers (1,2,3...). \nClick Cancel to choose other character types")
   if(bool==true){
     options += "0123456789"
   }
@@ -82,7 +82,7 @@ function nums() {
 
 //checks if they want special characters
 function specials() {
-  var bool = confirm("I want to include Special Characters (!@#$%^&*()[]{}). \nCancel if you don't") 
+  var bool = confirm("Click Okay to include Special Characters (!@#$%^&*()[]{}). \nClick Cancel to choose other character types") 
   if(bool==true){
     options += "!@#$%^&*()[]{}"
   }
