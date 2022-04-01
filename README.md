@@ -24,7 +24,7 @@ I needed to ensure that all of my work fit into the site, and did not change the
 ## User Guide 
 The application is quite intuitive, and accounts for any errors that may occur while using. 
 When prompted, the user gives the length they wish their password to be. If they don't meet the given
-criteria, they are asked to read the prompt again, and make sure what they input works. 
+criteria, they are asked to read the prompt again, and make sure what their input would work. 
 
 After the length has been input, then the user is prompted whether or not to include the 4 character types
 * Capital Letters
@@ -36,11 +36,11 @@ If the user does not confirm at least one of the types, they are notified, and t
 The application was designed such that the user would not receive their password until the correct criteria were given.
 
 ## Key Functions
+
+### generatePassword
 This was the function that runs when you press the big red button on the page.
 It contains the for loop for generating the random password from the character types selected by the user. 
 The promptUser function is called within, which is detailed below
-
-### generatePassword
 ```javascript
 function generatePassword() {
   options = ""
@@ -55,12 +55,11 @@ function generatePassword() {
 }
 ```
 
+### promptUser
 This function contains calls to the 5 functions that prompt the user to select the length of their code,
 as well as the character types they wish to include. If confirmed, those functions also added their respective characters to the "options" string, which would be later employed to generate the password.
 It also calls a final function that ensures that at least
-one of the types was selected, ensuring that the app could function correctly
-
-### promptUser
+one of the types was selected, ensuring that the app could function correctly.
 ```javascript
 function promptUser(){
   howLong()
