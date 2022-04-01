@@ -44,7 +44,7 @@ function promptUser(){
 
 function howLong() {
   //prompts user for length of password bewteen 8 and 128 chars
-  len = prompt("How long would you like your password?", "Pleas input a number higher than 8, no more than 128")
+  len = prompt("How long would you like your password?", "Pleas input a number between 8 and 128(inclusive)")
   if (len.typeOf=Number && len>=8 && len<=128){
   // returns a Number 
     return len 
